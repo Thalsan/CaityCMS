@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/categories', 'CategoryController@index');
+Route::get('/categories/index/{id}', 'CategoryController@expand');

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\TreeCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class CategoryController extends Controller
 {
@@ -14,7 +16,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = TreeCategory::where('depth', '=', '0')->paginate(10);
+        $breadcrumbs = [];
+        return View::make('categories.index')->with(['categories' => $categories, 'breadcrumbs' => $breadcrumbs]);
+    }
+
+    public function expand($id)
+    {
+        $categories = TreeCategory::where('parent_id', '=', $id)->paginate(10);
+        $breadcrumbs = TreeCategory::find($id)->get_breadcrumbs();
+        return View::make('categories.index')->with(['categories' => $categories, 'breadcrumbs' => $breadcrumbs]);
     }
 
     /**
