@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return View::make('products.index');
+        $products = Product::paginate(10);
+        return View::make('products.index')->with(['products' => $products]);
     }
 
     /**
