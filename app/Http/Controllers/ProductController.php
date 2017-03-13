@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
+use Yajra\Datatables\Datatables;
 
 class ProductController extends Controller
 {
@@ -15,8 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(10);
-        return View::make('products.index')->with(['products' => $products]);
+        return view('products.index');
     }
 
     /**
@@ -83,5 +82,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function anyData()
+    {
+        return Datatables::of(Product::query())->make(true);
     }
 }

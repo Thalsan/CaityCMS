@@ -1,0 +1,7 @@
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0.5em 0;
+}
+
+.table tfoot tr th input {
+    width: 100%
+}

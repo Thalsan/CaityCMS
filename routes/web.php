@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/products', 'ProductController@index');
+Route::get('products', 'ProductController@index');
+Route::get('products/data', 'ProductController@anyData');
