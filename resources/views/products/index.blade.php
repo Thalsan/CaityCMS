@@ -1,32 +1,39 @@
 @extends('master')
+@include('products.modal')
 
 @section('content')
-    <table class="table table-striped row-border" id="products-table">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Unique part</th>
-            <th>Brand</th>
-            <th>Short description</th>
-            <th>Long description</th>
-            <th>Created At</th>
-            <th>Updated At</th>
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-            <th rowspan="1" colspan="1"><input></th>
-            <th rowspan="1" colspan="1"><input></th>
-            <th rowspan="1" colspan="1"><input></th>
-            <th rowspan="1" colspan="1"><input></th>
-            <th rowspan="1" colspan="1"><input></th>
-            <th rowspan="1" colspan="1"><input></th>
-            <th rowspan="1" colspan="1"><input></th>
-            <th rowspan="1" colspan="1"><input></th>
-        </tr>
-        </tfoot>
-    </table>
+    @yield('modal')
+    <div class="panel panel-primary">
+        <div class="panel-heading">Products Table</div>
+        <div class="panel-body">
+            <table class="table table-striped row-border" id="products-table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Unique part</th>
+                    <th>Brand</th>
+                    <th>Short description</th>
+                    <th>Long description</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th rowspan="1" colspan="1"><input></th>
+                    <th rowspan="1" colspan="1"><input></th>
+                    <th rowspan="1" colspan="1"><input></th>
+                    <th rowspan="1" colspan="1"><input></th>
+                    <th rowspan="1" colspan="1"><input></th>
+                    <th rowspan="1" colspan="1"><input></th>
+                    <th rowspan="1" colspan="1"><input></th>
+                    <th rowspan="1" colspan="1"><input></th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
 @stop
 
 @push('scripts')

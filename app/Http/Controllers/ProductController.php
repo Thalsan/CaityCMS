@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Yajra\Datatables\Datatables;
 
 class ProductController extends Controller
@@ -87,5 +88,11 @@ class ProductController extends Controller
     public function anyData()
     {
         return Datatables::of(Product::query())->make(true);
+    }
+
+    public function getExtendedProduct($id)
+    {
+        $product = Product::find($id);
+        return response()->json($product);
     }
 }

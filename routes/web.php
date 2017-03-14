@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('products', 'ProductController@index');
 Route::get('products/data', 'ProductController@anyData');
+Route::get('product/{id}', 'ProductController@getExtendedProduct');

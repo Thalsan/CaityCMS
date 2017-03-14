@@ -5,3 +5,11 @@
 .table tfoot tr th input {
     width: 100%
 }
+
+.modal-body {
+    overflow: hidden;
+}
+
+.td-key {
+    padding-right: 5px;
+}
