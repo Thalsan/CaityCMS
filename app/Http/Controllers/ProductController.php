@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Libraries\Transformers\ProductTransformer;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Spatie\Fractalistic\ArraySerializer;
 use Yajra\Datatables\Datatables;
 
 class ProductController extends Controller
@@ -93,6 +95,7 @@ class ProductController extends Controller
     public function getExtendedProduct($id)
     {
         $product = Product::find($id);
+        $product = fractal($product, new ProductTransformer(), new ArraySerializer());
         return response()->json($product);
     }
 }
