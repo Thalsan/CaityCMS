@@ -20,21 +20,31 @@ class ProductTransformer extends TransformerAbstract
     public function transform(Product $product)
     {
         return [
-            'name'                      => $product->name,
-            'basic'                     => [
-                'id'                        => $product->id,
-                'unique_part'               => $product->unique_part,
-                'brand'                     => $product->brand,
-                'short_description'         => $product->short_description,
-                'long_description'          => $product->long_description,
-                'sku'                       => $product->sku,
-                'ean'                       => $product->ean,
-                'created_at'                => (string) $product->created_at,
-                'updated_at'                => (string) $product->updated_at,
+            'Name'                      => $product->name,
+            'Basic'                     => [
+                'Id'                        => $product->id,
+                'Image'                     => $product->image,
+                'Brand'                     => $product->brand ?? '-',
+                'Short description'         => $product->short_description ?? '-',
+                'Long description'          => $product->long_description ?? '-',
+                'SKU'                       => $product->sku ?? '-',
+                'EAN'                       => $product->ean ?? '-',
+                'Status'                    => $product->enabled ? 'enabled' : 'disabled',
+                'Weight'                    => $product->weight ?? '-',
+                'Created at'                => (string) $product->created_at,
+                'Updated at'                => (string) $product->updated_at,
             ],
-            'pricing'                   => [
-                'recommended_retail_price'  => $product->recommended_retail_price,
-            ]
+            'Pricing'                   => [
+                'Price [Inc. Tax]'          => 'To Be Continued!',
+                'Cost price'                => 'To Be Continued!',
+                'Recommended retail price'  => $product->recommended_retail_price,
+            ],
+            'Metadata'                  => [
+                'Meta title'                => $product->meta_title ?? '-',
+                'Meta description'          => $product->meta_description ?? '-',
+                'Meta keyword'              => $product->meta_keyword ?? '-',
+            ],
+            'Suppliers'                 => $product->get_all_modal_supplier_data(),
         ];
     }
 }
