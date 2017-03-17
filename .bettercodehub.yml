@@ -1,0 +1,10 @@
+exclude:
+- /bootstrap/.*
+- /config/.*
+- /database/.*
+- /public/.*
+- /routes/.*
+component_depth: 1
+languages:
+- javascript
+- php
