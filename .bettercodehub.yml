@@ -3,6 +3,8 @@ exclude:
 - /config/.*
 - /database/.*
 - /public/.*
+- /resources/assets/js/.*
+- /resources/lang/en/.*
 - /routes/.*
 component_depth: 1
 languages:
