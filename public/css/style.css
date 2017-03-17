@@ -1,0 +1,25 @@
+/* Modal CSS */
+#Suppliers span {
+    margin-top: -15px;
+}
+
+#Suppliers .tab-content {
+    padding-top: 18px;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 150px;
+}
+
+.enabled-tab {
+    background-color: darkgreen;
+}
+
+.disabled-tab {
+    background-color: darkred;
+}
+
+.fa-space-left {
+    margin-left: 5px;
+}

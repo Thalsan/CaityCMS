@@ -38,8 +38,9 @@
 
 @push('scripts')
 <script>
-    $(function() {
-        $('#products-table').DataTable({
+    var dt;
+    $(document).ready(function () {
+        dt = $('#products-table').DataTable({
             dom: 'Bfrtip',
             processing: true,
             serverSide: true,

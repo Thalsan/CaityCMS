@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Libraries\Transformers\SupplierDataTransformer;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Spatie\Fractalistic\ArraySerializer;
 
 class Product extends Model
 {
@@ -14,7 +16,7 @@ class Product extends Model
 
     public function supplier_data()
     {
-        return $this->hasMany('App\Supplier_data');
+        return $this->hasMany('App\SupplierData');
     }
 
     public function categories()
@@ -25,5 +27,13 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany('App\Product_image', 'product_id');
+    }
+
+    public function get_all_modal_supplier_data () {
+        $suppliers = [];
+        foreach ($this->supplier_data as $data) {
+            $suppliers[$data->supplier->name] = $data->get_modal_data();
+        }
+        return $suppliers;
     }
 }
